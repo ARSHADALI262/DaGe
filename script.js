@@ -152,9 +152,30 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Show all items initially in the "all" category
+  // Show all items initially in the "all" category and prepare skewers
   menuItems.forEach((item) => {
     const img = item.querySelector('img');
+    const category = item.getAttribute('data-category');
+    
+    // Hide images for skewers immediately
+    if (category === 'skewers') {
+      const imgContainer = item.querySelector('.menu-item-img');
+      if (img) {
+        img.style.display = "none";
+        img.style.visibility = "hidden";
+        img.style.opacity = "0";
+        img.style.height = "0";
+        img.style.width = "0";
+      }
+      if (imgContainer) {
+        imgContainer.style.display = "none";
+        imgContainer.style.height = "0";
+        imgContainer.style.padding = "0";
+        imgContainer.style.margin = "0";
+      }
+    }
+    
+    // Show items that aren't using placeholder images
     if (img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
       showItem(item);
     } else {
@@ -190,11 +211,31 @@ window.addEventListener('DOMContentLoaded', () => {
           showItem(item);
           // Hide images for Skewers category
           if (filter === 'skewers') {
-            if (img) img.style.display = "none";
-            if (imgContainer) imgContainer.style.display = "none";
+            if (img) {
+              img.style.display = "none";
+              img.style.visibility = "hidden";
+              img.style.opacity = "0";
+              img.style.height = "0";
+              img.style.width = "0";
+            }
+            if (imgContainer) {
+              imgContainer.style.display = "none";
+              imgContainer.style.height = "0";
+              imgContainer.style.padding = "0";
+              imgContainer.style.margin = "0";
+            }
           } else {
-            if (img) img.style.display = "block";
-            if (imgContainer) imgContainer.style.display = "block";
+            if (img) {
+              img.style.display = "block";
+              img.style.visibility = "visible";
+              img.style.opacity = "1";
+              img.style.height = "auto";
+              img.style.width = "100%";
+            }
+            if (imgContainer) {
+              imgContainer.style.display = "block";
+              imgContainer.style.height = "200px";
+            }
           }
         } else {
           hideItem(item);

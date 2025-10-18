@@ -430,6 +430,23 @@
             min-height: auto !important;
             margin-bottom: 15px;
         }
+        
+        [data-category="skewers"] .menu-item-img {
+            display: none !important;
+            height: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        
+        [data-category="skewers"] img {
+            display: none !important;
+            visibility: hidden !important;
+            height: 0 !important;
+            width: 0 !important;
+            opacity: 0 !important;
+            position: absolute !important;
+            z-index: -1 !important;
+        }
 
         .menu-item-title {
             display: flex;
