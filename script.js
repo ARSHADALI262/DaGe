@@ -208,16 +208,12 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // Show initial items (9 unique items from different categories)
-  const categoryItems = getCategoryItems();
-  const shownItems = new Set();
-  const categories = [...categoryItems.keys()].filter(cat => cat !== 'all');
-  
-  for (const category of categories) {
-    const items = categoryItems.get(category);
-    for (const item of items) {
+  // Show first 9 items only in the All section
+  let allShown = 0;
+  menuItems.forEach((item, index) => {
+    if (index < 9) {
       const img = item.querySelector('img');
-      if (shownItems.size < 9 && img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
+      if (img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
         showItem(item);
         if (img) {
           img.style.display = "block";
@@ -226,10 +222,10 @@ window.addEventListener('DOMContentLoaded', () => {
           img.style.height = "auto";
           img.style.width = "100%";
         }
-        shownItems.add(item);
       }
+    } else {
+      hideItem(item);
     }
-    if (shownItems.size >= 9) break;
   });
 
   // === Filtering System ===
@@ -249,28 +245,22 @@ window.addEventListener('DOMContentLoaded', () => {
       const categoryItems = getCategoryItems();
 
       if (filter === 'all') {
-        // Show initial unique items from different categories
-        const shownItems = new Set();
-        const categories = [...categoryItems.keys()].filter(cat => cat !== 'all');
-        
-        for (const category of categories) {
-          const items = categoryItems.get(category);
-          for (const item of items) {
-            const img = item.querySelector('img');
-            if (shownItems.size < 9 && img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
-              showItem(item);
-              if (img) {
-                img.style.display = "block";
-                img.style.visibility = "visible";
-                img.style.opacity = "1";
-                img.style.height = "auto";
-                img.style.width = "100%";
-              }
-              shownItems.add(item);
+        // Show only first 9 valid items
+        let shownCount = 0;
+        menuItems.forEach(item => {
+          const img = item.querySelector('img');
+          if (shownCount < 9 && img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
+            showItem(item);
+            if (img) {
+              img.style.display = "block";
+              img.style.visibility = "visible";
+              img.style.opacity = "1";
+              img.style.height = "auto";
+              img.style.width = "100%";
             }
+            shownCount++;
           }
-          if (shownItems.size >= 9) break;
-        }
+        });
       } else {
         // Show items for specific category
         const items = categoryItems.get(filter) || [];
@@ -278,8 +268,8 @@ window.addEventListener('DOMContentLoaded', () => {
       }
       });
     });
-  };
+  });
 
   // Default active "All"
   document.querySelector('.filter-btn[data-filter="all"]')?.classList.add('active');
-);
+;
