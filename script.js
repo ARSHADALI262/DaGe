@@ -111,6 +111,20 @@ window.addEventListener('DOMContentLoaded', () => {
     item.style.display = 'none';
   });
 
+  // Define allowed item names for each category
+  const categoryItems = {
+    'all': [
+      'Mandi', 'Al-Faham', 'Shawarma', 'Grilled Chicken',
+      'Mexican Shawarma', 'Special Mandi', 'BBQ Chicken',
+      'Tandoori Chicken', 'Special Al-Faham'
+    ],
+    'mandi': ['Mandi', 'Special Mandi'],
+    'shawarma': ['Shawarma', 'Mexican Shawarma'],
+    'al-faham': ['Al-Faham', 'Special Al-Faham'],
+    'grills': ['BBQ Chicken', 'Grilled Chicken', 'Tandoori Chicken'],
+    'skewers': ['Chicken Skewer', 'Mutton Skewer', 'Mixed Skewer']
+  };
+
   // Handle filter click
   const handleFilter = (filter) => {
     // Hide all items first
@@ -123,22 +137,48 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     setTimeout(() => {
-      if (filter === 'all') {
-        // Show only first 9 valid items
-        let shown = 0;
-        menuItems.forEach(item => {
-          if (shown >= 9) return;
+      const allowedItems = categoryItems[filter] || [];
+
+      // Show filtered items
+      let shown = 0;
+      menuItems.forEach((item, index) => {
+        const itemName = item.querySelector('.menu-item-text h3')?.textContent?.trim();
+        const category = item.getAttribute('data-category').trim();
+        
+        // Show item if it's in the allowed list for this category
+        if (allowedItems.includes(itemName)) {
+          const delay = shown * 100;
+          item.style.display = 'block';
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(20px)';
           
-          const img = item.querySelector('img');
-          if (img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
-            const delay = shown * 100;
-            item.style.display = 'block';
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
             
-            setTimeout(() => {
-              item.style.opacity = '1';
-              item.style.transform = 'translateY(0)';
+            const img = item.querySelector('img');
+            const imgContainer = item.querySelector('.menu-item-img');
+            
+            if (filter === 'skewers' || category === 'skewers') {
+              // Hide images for skewers
+              if (img) {
+                img.style.display = 'none';
+                img.style.visibility = 'hidden';
+              }
+              if (imgContainer) {
+                imgContainer.style.display = 'none';
+                imgContainer.style.height = '0';
+                imgContainer.style.padding = '0';
+                imgContainer.style.margin = '0';
+              }
+              // Adjust text layout
+              const textContainer = item.querySelector('.menu-item-text');
+              if (textContainer) {
+                textContainer.style.width = '100%';
+                textContainer.style.padding = '1rem';
+              }
+            } else {
+              // Show images for other categories
               if (img) {
                 img.style.display = 'block';
                 img.style.visibility = 'visible';
@@ -146,64 +186,15 @@ window.addEventListener('DOMContentLoaded', () => {
                 img.style.height = 'auto';
                 img.style.width = '100%';
               }
-            }, delay);
-            
-            shown++;
-          }
-        });
-      } else {
-        // Show all items in category
-        menuItems.forEach((item, index) => {
-          const category = item.getAttribute('data-category').trim();
-          if (category === filter) {
-            const delay = index * 100;
-            item.style.display = 'block';
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-            
-            setTimeout(() => {
-              item.style.opacity = '1';
-              item.style.transform = 'translateY(0)';
-              
-              const img = item.querySelector('img');
-              const imgContainer = item.querySelector('.menu-item-img');
-              
-              if (filter === 'skewers') {
-                // Hide images for skewers
-                if (img) {
-                  img.style.display = 'none';
-                  img.style.visibility = 'hidden';
-                }
-                if (imgContainer) {
-                  imgContainer.style.display = 'none';
-                  imgContainer.style.height = '0';
-                  imgContainer.style.padding = '0';
-                  imgContainer.style.margin = '0';
-                }
-                // Adjust text layout
-                const textContainer = item.querySelector('.menu-item-text');
-                if (textContainer) {
-                  textContainer.style.width = '100%';
-                  textContainer.style.padding = '1rem';
-                }
-              } else {
-                // Show images for other categories
-                if (img) {
-                  img.style.display = 'block';
-                  img.style.visibility = 'visible';
-                  img.style.opacity = '1';
-                  img.style.height = 'auto';
-                  img.style.width = '100%';
-                }
-                if (imgContainer) {
-                  imgContainer.style.display = 'block';
-                  imgContainer.style.height = '200px';
-                }
+              if (imgContainer) {
+                imgContainer.style.display = 'block';
+                imgContainer.style.height = '200px';
               }
-            }, delay);
-          }
-        });
-      }
+            }
+          }, delay);
+          shown++;
+        }
+      });
 
       // Update active button
       filterButtons.forEach(btn => btn.classList.remove('active'));
