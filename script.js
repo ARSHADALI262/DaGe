@@ -7,7 +7,6 @@ window.addEventListener('DOMContentLoaded', () => {
     lastScrollY = window.scrollY;
     if (!ticking) {
       requestAnimationFrame(() => {
-        // Check if scrolling up
         if (lastScrollY < 100) {
           document.querySelector('header')?.classList.remove('header-hidden');
         }
@@ -53,32 +52,28 @@ window.addEventListener('DOMContentLoaded', () => {
   });
   
   lazyImages.forEach(img => imageObserver.observe(img));
-  // === Theme and Navigation ===
+
+  // Theme Toggle
   const themeToggle = document.getElementById('theme-toggle');
   const themeIcon = themeToggle?.querySelector('i');
   const body = document.body;
 
-  // Toggle between light and dark mode
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
       body.classList.toggle('dark-mode');
       themeIcon?.classList.toggle('fa-moon');
       themeIcon?.classList.toggle('fa-sun');
-      // Save preference to localStorage
-      const isDarkMode = body.classList.contains('dark-mode');
-      localStorage.setItem('darkMode', isDarkMode);
+      localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
     });
     
-    // Check for saved user preference
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-    if (savedDarkMode) {
+    if (localStorage.getItem('darkMode') === 'true') {
       body.classList.add('dark-mode');
       themeIcon?.classList.remove('fa-moon');
       themeIcon?.classList.add('fa-sun');
     }
   }
 
-  // === Navigation Menu Toggle ===
+  // Navigation Menu Toggle
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
   if (menuToggle && navLinks) {
@@ -88,7 +83,7 @@ window.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  // === Reservation Form ===
+  // Reservation Form
   const reservationForm = document.getElementById('reservationForm');
   if (reservationForm) {
     reservationForm.addEventListener('submit', e => {
@@ -98,7 +93,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // === Set Minimum Date for Reservations ===
+  // Set Minimum Date for Reservations
   const dateInput = document.getElementById('date');
   if (dateInput) {
     const today = new Date().toISOString().split('T')[0];
@@ -108,202 +103,122 @@ window.addEventListener('DOMContentLoaded', () => {
   // === Menu Filter System ===
   const filterButtons = document.querySelectorAll('.filter-btn');
   const menuItems = document.querySelectorAll('.menu-item');
-  const menuGrid = document.querySelector('.menu-grid');
-  
-  // Create a debounce function to limit filter operations
-  const debounce = (func, wait) => {
-    let timeout;
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  };
 
-  // Enhanced show/hide with better performance
-  const visibleItems = new Set();
-  
-  const showItem = item => {
-    if (!visibleItems.has(item)) {
-      visibleItems.add(item);
-      requestAnimationFrame(() => {
-        item.style.display = "block";
-        requestAnimationFrame(() => {
-          item.style.opacity = 1;
-          item.style.transform = "translateY(0)";
-        });
-      });
-    }
-  };
-  
-  const hideItem = item => {
-    if (visibleItems.has(item)) {
-      visibleItems.delete(item);
-      item.style.opacity = 0;
-      item.style.transform = "translateY(20px)";
-      setTimeout(() => {
-        if (!visibleItems.has(item)) {
-          item.style.display = "none";
-        }
-      }, 300);
-    }
-  };
-
-  // Initialize all items as hidden
+  // Initialize items styles
   menuItems.forEach(item => {
-    hideItem(item);
+    item.style.transition = 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out';
+    item.style.opacity = '0';
+    item.style.display = 'none';
   });
 
-  // Function to get unique categories and their items
-  const getCategoryItems = () => {
-    const categoryMap = new Map();
+  // Handle filter click
+  const handleFilter = (filter) => {
+    // Hide all items first
     menuItems.forEach(item => {
-      const category = item.getAttribute('data-category').trim();
-      if (!categoryMap.has(category)) {
-        categoryMap.set(category, []);
-      }
-      categoryMap.get(category).push(item);
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        item.style.display = 'none';
+      }, 300);
     });
-    return categoryMap;
-  };
 
-  // Function to show items for a category
-  const showItemsForCategory = (items, isSkewers = false) => {
-    items.slice(0, 9).forEach(item => {
-      const img = item.querySelector('img');
-      const imgContainer = item.querySelector('.menu-item-img');
-      
-      showItem(item);
-      
-      if (isSkewers) {
-        if (img) {
-          img.style.display = "none";
-          img.style.visibility = "hidden";
-          img.style.opacity = "0";
-          img.style.height = "0";
-          img.style.width = "0";
-        }
-        if (imgContainer) {
-          imgContainer.style.display = "none";
-          imgContainer.style.height = "0";
-          imgContainer.style.padding = "0";
-          imgContainer.style.margin = "0";
-        }
+    setTimeout(() => {
+      if (filter === 'all') {
+        // Show only first 9 valid items
+        let shown = 0;
+        menuItems.forEach(item => {
+          if (shown >= 9) return;
+          
+          const img = item.querySelector('img');
+          if (img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
+            const delay = shown * 100;
+            item.style.display = 'block';
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+              if (img) {
+                img.style.display = 'block';
+                img.style.visibility = 'visible';
+                img.style.opacity = '1';
+                img.style.height = 'auto';
+                img.style.width = '100%';
+              }
+            }, delay);
+            
+            shown++;
+          }
+        });
       } else {
-        if (img) {
-          img.style.display = "block";
-          img.style.visibility = "visible";
-          img.style.opacity = "1";
-          img.style.height = "auto";
-          img.style.width = "100%";
-        }
-        if (imgContainer) {
-          imgContainer.style.display = "block";
-          imgContainer.style.height = "200px";
-        }
+        // Show all items in category
+        menuItems.forEach((item, index) => {
+          const category = item.getAttribute('data-category').trim();
+          if (category === filter) {
+            const delay = index * 100;
+            item.style.display = 'block';
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+              
+              const img = item.querySelector('img');
+              const imgContainer = item.querySelector('.menu-item-img');
+              
+              if (filter === 'skewers') {
+                // Hide images for skewers
+                if (img) {
+                  img.style.display = 'none';
+                  img.style.visibility = 'hidden';
+                }
+                if (imgContainer) {
+                  imgContainer.style.display = 'none';
+                  imgContainer.style.height = '0';
+                  imgContainer.style.padding = '0';
+                  imgContainer.style.margin = '0';
+                }
+                // Adjust text layout
+                const textContainer = item.querySelector('.menu-item-text');
+                if (textContainer) {
+                  textContainer.style.width = '100%';
+                  textContainer.style.padding = '1rem';
+                }
+              } else {
+                // Show images for other categories
+                if (img) {
+                  img.style.display = 'block';
+                  img.style.visibility = 'visible';
+                  img.style.opacity = '1';
+                  img.style.height = 'auto';
+                  img.style.width = '100%';
+                }
+                if (imgContainer) {
+                  imgContainer.style.display = 'block';
+                  imgContainer.style.height = '200px';
+                }
+              }
+            }, delay);
+          }
+        });
       }
-    });
-  };
-
-  // Show first 9 items only in the All section
-  let allShown = 0;
-  menuItems.forEach((item, index) => {
-    if (index < 9) {
-      const img = item.querySelector('img');
-      if (img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
-        showItem(item);
-        if (img) {
-          img.style.display = "block";
-          img.style.visibility = "visible";
-          img.style.opacity = "1";
-          img.style.height = "auto";
-          img.style.width = "100%";
-        }
-      }
-    } else {
-      hideItem(item);
-    }
-  });
-
-  // === Filtering System ===
-  filterButtons.forEach(button => {
-    button.addEventListener('click', e => {
-      const filter = e.target.getAttribute('data-filter');
 
       // Update active button
       filterButtons.forEach(btn => btn.classList.remove('active'));
-      e.target.classList.add('active');
+      document.querySelector(`.filter-btn[data-filter="${filter}"]`)?.classList.add('active');
+    }, 300);
+  };
 
-      // Hide all items first
-      menuItems.forEach(item => hideItem(item));
-
-      if (filter === 'all') {
-        // Show only first 9 valid items
-        let shownCount = 0;
-        menuItems.forEach(item => {
-          if (shownCount < 9) {
-            const img = item.querySelector('img');
-            if (img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
-              showItem(item);
-              if (img) {
-                img.style.display = "block";
-                img.style.visibility = "visible";
-                img.style.opacity = "1";
-                img.style.height = "auto";
-                img.style.width = "100%";
-              }
-              shownCount++;
-            }
-          }
-        });
-      } else {
-        // Show all items for the specific category
-        menuItems.forEach(item => {
-          const category = item.getAttribute('data-category').trim();
-          if (category === filter) {
-            const img = item.querySelector('img');
-            const imgContainer = item.querySelector('.menu-item-img');
-            
-            showItem(item);
-            
-            if (filter === 'skewers') {
-              // For skewers, always hide images but show text
-              if (img) {
-                img.style.display = "none";
-                img.style.visibility = "hidden";
-                img.style.opacity = "0";
-                img.style.height = "0";
-                img.style.width = "0";
-              }
-              if (imgContainer) {
-                imgContainer.style.display = "none";
-                imgContainer.style.height = "0";
-                imgContainer.style.padding = "0";
-                imgContainer.style.margin = "0";
-              }
-            } else {
-              // For other categories, show images
-              if (img) {
-                img.style.display = "block";
-                img.style.visibility = "visible";
-                img.style.opacity = "1";
-                img.style.height = "auto";
-                img.style.width = "100%";
-              }
-              if (imgContainer) {
-                imgContainer.style.display = "block";
-                imgContainer.style.height = "200px";
-              }
-            }
-          }
-        });
-      }
+  // Attach filter click handlers
+  filterButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      const filter = e.target.getAttribute('data-filter');
+      handleFilter(filter);
     });
   });
 
-  // Default active "All"
-  document.querySelector('.filter-btn[data-filter="all"]')?.classList.add('active');
+  // Initialize with 'all' filter
+  handleFilter('all');
 });
