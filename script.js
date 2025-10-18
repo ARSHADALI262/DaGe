@@ -152,32 +152,38 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Show all items initially in the "all" category and prepare skewers
+  // Track items shown per category
+  const itemsShownPerCategory = new Map();
+
+  // Function to reset item counter
+  const resetItemCounter = () => {
+    itemsShownPerCategory.clear();
+  };
+
+  // Function to check if we can show more items in this category
+  const canShowMoreItems = (category) => {
+    const currentCount = itemsShownPerCategory.get(category) || 0;
+    return currentCount < 9;
+  };
+
+  // Function to increment item counter
+  const incrementItemCounter = (category) => {
+    const currentCount = itemsShownPerCategory.get(category) || 0;
+    itemsShownPerCategory.set(category, currentCount + 1);
+  };
+
+  // Show first 9 items initially in "all" category
   menuItems.forEach((item) => {
-    const img = item.querySelector('img');
     const category = item.getAttribute('data-category');
+    const img = item.querySelector('img');
     
-    // Hide images for skewers immediately
-    if (category === 'skewers') {
-      const imgContainer = item.querySelector('.menu-item-img');
-      if (img) {
-        img.style.display = "none";
-        img.style.visibility = "hidden";
-        img.style.opacity = "0";
-        img.style.height = "0";
-        img.style.width = "0";
+    if (category === 'all' && canShowMoreItems('all')) {
+      if (img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
+        showItem(item);
+        incrementItemCounter('all');
+      } else {
+        hideItem(item);
       }
-      if (imgContainer) {
-        imgContainer.style.display = "none";
-        imgContainer.style.height = "0";
-        imgContainer.style.padding = "0";
-        imgContainer.style.margin = "0";
-      }
-    }
-    
-    // Show items that aren't using placeholder images
-    if (img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
-      showItem(item);
     } else {
       hideItem(item);
     }
@@ -187,55 +193,53 @@ window.addEventListener('DOMContentLoaded', () => {
   filterButtons.forEach(button => {
     button.addEventListener('click', e => {
       const filter = e.target.getAttribute('data-filter');
+      resetItemCounter();
 
       // Update active button
       filterButtons.forEach(btn => btn.classList.remove('active'));
       e.target.classList.add('active');
 
-      menuItems.forEach((item, i) => {
+      menuItems.forEach(item => {
         const category = item.getAttribute('data-category').trim();
         const img = item.querySelector('img');
         const imgContainer = item.querySelector('.menu-item-img');
 
-        if (filter === 'all') {
-          if (i < 9) {
+        if ((filter === 'all' && category === 'all') || category === filter) {
+          if (canShowMoreItems(filter)) {
             showItem(item);
-            if (img) {
-              img.style.display = "block";
-              imgContainer.style.display = "block";
+            incrementItemCounter(filter);
+
+            if (filter === 'skewers') {
+              // For skewers, always hide images but show text
+              if (img) {
+                img.style.display = "none";
+                img.style.visibility = "hidden";
+                img.style.opacity = "0";
+                img.style.height = "0";
+                img.style.width = "0";
+              }
+              if (imgContainer) {
+                imgContainer.style.display = "none";
+                imgContainer.style.height = "0";
+                imgContainer.style.padding = "0";
+                imgContainer.style.margin = "0";
+              }
+            } else {
+              // For other categories, show images
+              if (img) {
+                img.style.display = "block";
+                img.style.visibility = "visible";
+                img.style.opacity = "1";
+                img.style.height = "auto";
+                img.style.width = "100%";
+              }
+              if (imgContainer) {
+                imgContainer.style.display = "block";
+                imgContainer.style.height = "200px";
+              }
             }
           } else {
             hideItem(item);
-          }
-        } else if (category === filter) {
-          showItem(item);
-          // Hide images for Skewers category
-          if (filter === 'skewers') {
-            if (img) {
-              img.style.display = "none";
-              img.style.visibility = "hidden";
-              img.style.opacity = "0";
-              img.style.height = "0";
-              img.style.width = "0";
-            }
-            if (imgContainer) {
-              imgContainer.style.display = "none";
-              imgContainer.style.height = "0";
-              imgContainer.style.padding = "0";
-              imgContainer.style.margin = "0";
-            }
-          } else {
-            if (img) {
-              img.style.display = "block";
-              img.style.visibility = "visible";
-              img.style.opacity = "1";
-              img.style.height = "auto";
-              img.style.width = "100%";
-            }
-            if (imgContainer) {
-              imgContainer.style.display = "block";
-              imgContainer.style.height = "200px";
-            }
           }
         } else {
           hideItem(item);
