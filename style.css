@@ -357,6 +357,8 @@
   gap: 30px;
   justify-content: center;
   align-items: stretch;
+  contain: layout style paint;
+  will-change: transform;
 }
 
         .menu-item {
@@ -381,10 +383,21 @@
             font-size: 2rem;
         }
         
+        .menu-item-img {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+        
         .menu-item-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transform: translateZ(0);
+            will-change: opacity;
+            opacity: 0;
         }
 
         .menu-item-info {

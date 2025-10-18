@@ -1,4 +1,24 @@
 window.addEventListener('DOMContentLoaded', () => {
+  // Lazy load images
+  const lazyImages = document.querySelectorAll('img[src]');
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.3s ease-in';
+        const tempImage = new Image();
+        tempImage.onload = () => {
+          img.src = tempImage.src;
+          img.style.opacity = '1';
+        };
+        tempImage.src = img.getAttribute('src');
+        observer.unobserve(img);
+      }
+    });
+  });
+  
+  lazyImages.forEach(img => imageObserver.observe(img));
   // === Theme and Navigation ===
   const themeToggle = document.getElementById('theme-toggle');
   const themeIcon = themeToggle?.querySelector('i');
@@ -54,6 +74,20 @@ window.addEventListener('DOMContentLoaded', () => {
   // === Menu Filter System ===
   const filterButtons = document.querySelectorAll('.filter-btn');
   const menuItems = document.querySelectorAll('.menu-item');
+  const menuGrid = document.querySelector('.menu-grid');
+  
+  // Create a debounce function to limit filter operations
+  const debounce = (func, wait) => {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
 
   // Optimized show/hide
   const showItem = item => {
