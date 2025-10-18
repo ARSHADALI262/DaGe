@@ -55,20 +55,32 @@ window.addEventListener('DOMContentLoaded', () => {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const menuItems = document.querySelectorAll('.menu-item');
 
-  // Smooth show/hide
+  // Optimized show/hide
   const showItem = item => {
-    item.style.display = "block";
-    setTimeout(() => (item.style.opacity = 1), 100);
+    requestAnimationFrame(() => {
+      item.style.display = "block";
+      requestAnimationFrame(() => {
+        item.style.opacity = 1;
+      });
+    });
   };
   const hideItem = item => {
     item.style.opacity = 0;
-    setTimeout(() => (item.style.display = "none"), 200);
+    setTimeout(() => {
+      if (item.style.opacity === "0") {
+        item.style.display = "none";
+      }
+    }, 200);
   };
 
-  // Show only first 9 items initially
-  menuItems.forEach((item, i) => {
-    if (i < 9) showItem(item);
-    else hideItem(item);
+  // Show all items initially in the "all" category
+  menuItems.forEach((item) => {
+    const img = item.querySelector('img');
+    if (img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
+      showItem(item);
+    } else {
+      hideItem(item);
+    }
   });
 
   // === Filtering System ===
