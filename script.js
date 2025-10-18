@@ -152,46 +152,84 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Track items shown per category
-  const itemsShownPerCategory = new Map();
-
-  // Function to reset item counter
-  const resetItemCounter = () => {
-    itemsShownPerCategory.clear();
-  };
-
-  // Function to check if we can show more items in this category
-  const canShowMoreItems = (category) => {
-    const currentCount = itemsShownPerCategory.get(category) || 0;
-    return currentCount < 9;
-  };
-
-  // Function to increment item counter
-  const incrementItemCounter = (category) => {
-    const currentCount = itemsShownPerCategory.get(category) || 0;
-    itemsShownPerCategory.set(category, currentCount + 1);
-  };
-
   // Initialize all items as hidden
   menuItems.forEach(item => {
     hideItem(item);
   });
 
-  // Show first 9 valid items in "all" category initially
-  let allShown = 0;
-  menuItems.forEach((item) => {
-    const img = item.querySelector('img');
-    if (allShown < 9 && img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
-      showItem(item);
-      if (img) {
-        img.style.display = "block";
-        img.style.visibility = "visible";
-        img.style.opacity = "1";
-        img.style.height = "auto";
-        img.style.width = "100%";
+  // Function to get unique categories and their items
+  const getCategoryItems = () => {
+    const categoryMap = new Map();
+    menuItems.forEach(item => {
+      const category = item.getAttribute('data-category').trim();
+      if (!categoryMap.has(category)) {
+        categoryMap.set(category, []);
       }
-      allShown++;
+      categoryMap.get(category).push(item);
+    });
+    return categoryMap;
+  };
+
+  // Function to show items for a category
+  const showItemsForCategory = (items, isSkewers = false) => {
+    items.slice(0, 9).forEach(item => {
+      const img = item.querySelector('img');
+      const imgContainer = item.querySelector('.menu-item-img');
+      
+      showItem(item);
+      
+      if (isSkewers) {
+        if (img) {
+          img.style.display = "none";
+          img.style.visibility = "hidden";
+          img.style.opacity = "0";
+          img.style.height = "0";
+          img.style.width = "0";
+        }
+        if (imgContainer) {
+          imgContainer.style.display = "none";
+          imgContainer.style.height = "0";
+          imgContainer.style.padding = "0";
+          imgContainer.style.margin = "0";
+        }
+      } else {
+        if (img) {
+          img.style.display = "block";
+          img.style.visibility = "visible";
+          img.style.opacity = "1";
+          img.style.height = "auto";
+          img.style.width = "100%";
+        }
+        if (imgContainer) {
+          imgContainer.style.display = "block";
+          imgContainer.style.height = "200px";
+        }
+      }
+    });
+  };
+
+  // Show initial items (9 unique items from different categories)
+  const categoryItems = getCategoryItems();
+  const shownItems = new Set();
+  const categories = [...categoryItems.keys()].filter(cat => cat !== 'all');
+  
+  for (const category of categories) {
+    const items = categoryItems.get(category);
+    for (const item of items) {
+      const img = item.querySelector('img');
+      if (shownItems.size < 9 && img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
+        showItem(item);
+        if (img) {
+          img.style.display = "block";
+          img.style.visibility = "visible";
+          img.style.opacity = "1";
+          img.style.height = "auto";
+          img.style.width = "100%";
+        }
+        shownItems.add(item);
+      }
     }
+    if (shownItems.size >= 9) break;
   });
 
   // === Filtering System ===
@@ -204,68 +242,44 @@ window.addEventListener('DOMContentLoaded', () => {
       filterButtons.forEach(btn => btn.classList.remove('active'));
       e.target.classList.add('active');
 
-      // First hide all items
+      // Hide all items first
       menuItems.forEach(item => hideItem(item));
 
-      // Then show up to 9 items for the selected category
-      let shownCount = 0;
-      menuItems.forEach(item => {
-        const category = item.getAttribute('data-category').trim();
-        const img = item.querySelector('img');
-        const imgContainer = item.querySelector('.menu-item-img');
+      // Get category items
+      const categoryItems = getCategoryItems();
 
-        // For "all" category, only show first 9 valid items
-        if (filter === 'all') {
-          if (shownCount < 9 && img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
-            showItem(item);
-            if (img) {
-              img.style.display = "block";
-              img.style.visibility = "visible";
-              img.style.opacity = "1";
-              img.style.height = "auto";
-              img.style.width = "100%";
-            }
-            shownCount++;
-          }
-        }
-        // For specific categories, show up to 9 items from that category
-        else if (category === filter && shownCount < 9) {
-          showItem(item);
-          if (filter === 'skewers') {
-            // For skewers, always hide images but show text
-            if (img) {
-              img.style.display = "none";
-              img.style.visibility = "hidden";
-              img.style.opacity = "0";
-              img.style.height = "0";
-              img.style.width = "0";
-            }
-            if (imgContainer) {
-              imgContainer.style.display = "none";
-              imgContainer.style.height = "0";
-              imgContainer.style.padding = "0";
-              imgContainer.style.margin = "0";
-            }
-          } else {
-            // For other categories, show images
-            if (img) {
-              img.style.display = "block";
-              img.style.visibility = "visible";
-              img.style.opacity = "1";
-              img.style.height = "auto";
-              img.style.width = "100%";
-            }
-            if (imgContainer) {
-              imgContainer.style.display = "block";
-              imgContainer.style.height = "200px";
+      if (filter === 'all') {
+        // Show initial unique items from different categories
+        const shownItems = new Set();
+        const categories = [...categoryItems.keys()].filter(cat => cat !== 'all');
+        
+        for (const category of categories) {
+          const items = categoryItems.get(category);
+          for (const item of items) {
+            const img = item.querySelector('img');
+            if (shownItems.size < 9 && img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
+              showItem(item);
+              if (img) {
+                img.style.display = "block";
+                img.style.visibility = "visible";
+                img.style.opacity = "1";
+                img.style.height = "auto";
+                img.style.width = "100%";
+              }
+              shownItems.add(item);
             }
           }
-          shownCount++;
+          if (shownItems.size >= 9) break;
         }
+      } else {
+        // Show items for specific category
+        const items = categoryItems.get(filter) || [];
+        showItemsForCategory(items, filter === 'skewers');
+      }
       });
     });
-  });
+  };
 
   // Default active "All"
   document.querySelector('.filter-btn[data-filter="all"]')?.classList.add('active');
-});
+);
