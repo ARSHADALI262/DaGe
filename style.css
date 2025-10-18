@@ -32,6 +32,18 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        body {
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
         /* Apply transition only to header and footer elements, excluding images */
         header:not(img) *,
         footer:not(img) * {
@@ -356,9 +368,15 @@
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 30px;
   justify-content: center;
-  align-items: stretch;
+  align-items: start;
   contain: layout style paint;
   will-change: transform;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
         .menu-item {

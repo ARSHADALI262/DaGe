@@ -1,4 +1,38 @@
 window.addEventListener('DOMContentLoaded', () => {
+  // Optimize scroll performance
+  let ticking = false;
+  let lastScrollY = window.scrollY;
+  
+  function onScroll() {
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        // Check if scrolling up
+        if (lastScrollY < 100) {
+          document.querySelector('header')?.classList.remove('header-hidden');
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Smooth scroll for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
   // Lazy load images
   const lazyImages = document.querySelectorAll('img[src]');
   const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -89,22 +123,33 @@ window.addEventListener('DOMContentLoaded', () => {
     };
   };
 
-  // Optimized show/hide
+  // Enhanced show/hide with better performance
+  const visibleItems = new Set();
+  
   const showItem = item => {
-    requestAnimationFrame(() => {
-      item.style.display = "block";
+    if (!visibleItems.has(item)) {
+      visibleItems.add(item);
       requestAnimationFrame(() => {
-        item.style.opacity = 1;
+        item.style.display = "block";
+        requestAnimationFrame(() => {
+          item.style.opacity = 1;
+          item.style.transform = "translateY(0)";
+        });
       });
-    });
+    }
   };
+  
   const hideItem = item => {
-    item.style.opacity = 0;
-    setTimeout(() => {
-      if (item.style.opacity === "0") {
-        item.style.display = "none";
-      }
-    }, 200);
+    if (visibleItems.has(item)) {
+      visibleItems.delete(item);
+      item.style.opacity = 0;
+      item.style.transform = "translateY(20px)";
+      setTimeout(() => {
+        if (!visibleItems.has(item)) {
+          item.style.display = "none";
+        }
+      }, 300);
+    }
   };
 
   // Show all items initially in the "all" category
