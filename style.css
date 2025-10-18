@@ -421,6 +421,15 @@
         .menu-item-info {
             padding: 20px;
         }
+        
+        [data-category="skewers"] .menu-item-info {
+            padding-top: 10px;
+        }
+        
+        [data-category="skewers"] {
+            min-height: auto !important;
+            margin-bottom: 15px;
+        }
 
         .menu-item-title {
             display: flex;

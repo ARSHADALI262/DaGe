@@ -174,20 +174,27 @@ window.addEventListener('DOMContentLoaded', () => {
       menuItems.forEach((item, i) => {
         const category = item.getAttribute('data-category').trim();
         const img = item.querySelector('img');
+        const imgContainer = item.querySelector('.menu-item-img');
 
         if (filter === 'all') {
-          // Show first 9 items
           if (i < 9) {
             showItem(item);
-            if (img) img.style.display = "block"; // Show images normally
-          } else hideItem(item);
+            if (img) {
+              img.style.display = "block";
+              imgContainer.style.display = "block";
+            }
+          } else {
+            hideItem(item);
+          }
         } else if (category === filter) {
           showItem(item);
-          // ✅ Hide images only for Skewers
-          if (filter === 'skewers' && img) {
-            img.style.display = "none";
-          } else if (img) {
-            img.style.display = "block";
+          // Hide images for Skewers category
+          if (filter === 'skewers') {
+            if (img) img.style.display = "none";
+            if (imgContainer) imgContainer.style.display = "none";
+          } else {
+            if (img) img.style.display = "block";
+            if (imgContainer) imgContainer.style.display = "block";
           }
         } else {
           hideItem(item);
