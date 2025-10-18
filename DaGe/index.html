@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DaGe</title>
+    <link rel="icon" href="img/newicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode">
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="img/newicon.png" alt="DaGe Logo" width="90" height="90">
+                    <div class="logo-text">
+                        <span>DaGe</span>
+                        <small class="subtitle">
+                            <div>Rice-Noodle-BBQ Meat</div>
+                            <div>Hong Kong style</div>
+                        </small>
+                    </div>
+                </a>
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#reservation">More Details </a></li>
+                </ul>
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+    <!-- ...existing code... -->
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+    <video class="hero-bg-video" autoplay muted loop playsinline>
+        <source src="img/video01.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <div class="hero-content">
+            <h1> DaGe USES SLOW-COOKED</h1>
+            <div class="hero-buttons">
+                
+                <a href="#menu" class="btn">View Menu</a>
+                <a href="#reservation" class="btn">Reserve a Table</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- <- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Our Food Style</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>DaGe USES SLOW-COOKED</h2>
+                    <p>boath made from pork and chicken bones, combined with Sichuan Leshan ancient secret recipe soup base. Accompanied by Hong Kong chef's selected special ingredients, DaGe's rice noodles stand out with unique characters and flavours.</p>
+                    <a href="#reservation" class="btn">Book a Table</a>
+                </div>
+                <div class="about-image">
+                    <img src="img/backgroundimage.jpeg" alt="Restaurant Interior">
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2 class="section-title">Our Menu</h2>
+            <div class="menu-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="hkbbq">Hong Kong Style Barbecue Meat</button>
+                <button class="filter-btn" data-filter="mains">SIGNATURE RICE NOODLES</button>
+                <button class="filter-btn" data-filter="starters">Starters</button>
+                <button class="filter-btn" data-filter="riceBowls">RICE BOWLS</button>
+                <button class="filter-btn" data-filter="skewers">Skewers</button>
+                <button class="filter-btn" data-filter="bubbleTea">Bubble Tea</button>
+                <button class="filter-btn" data-filter="desserts">Desserts</button>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item" data-category="all">
+                    <img src="img/Honey Roasted Pork with Rice and Sunny Side-up Egg.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Honey Roasted Pork with Rice and Sunny Side-up Egg</h3>
+                            <span class="menu-item-price">$18</span>
+                        </div>
+                        <p>Honey roasted pork served with fragrant rice and a perfectly cooked sunny side-up egg.</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="all">
+                    <img src="img/DaGe's Signature Rice Noodles.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>DaGe's Signature Rice Noodles</h3>
+                            <span class="menu-item-price">$24</span>
+                        </div>
+                        <p>Slow-cooked beef broth with handmade rice noodles, topped with fresh herbs and spices.</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="all">
+                    <img src="img/Hainanese Chicken with Boiled Rice2.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Hainanese Chicken with Boiled Rice</h3>
+                            <span class="menu-item-price">$32</span>
+                        </div>
+                        <p>Poached chicken served with fragrant rice and a side of chili sauce.</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="all">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Chinese Mushroom and Chicken Rice Noodles</h3>
+                            <span class="menu-item-price">$16</span>
+                        </div>
+                        <p>Chinese Mushroom and Chicken Rice Noodles</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="all">
+                    <img src="img/Pork & Prawn Wantons Soup.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pork & Prawn Wantons Soup</h3>
+                            <span class="menu-item-price">$14</span>
+                        </div>
+                        <p>Pork and prawn wantons served in a flavorful broth with vegetables.</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="all">
+                    <img src="img/DaGe Special.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>DaGe Special</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>DaGe Special</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="all">
+                    <img src="img/DaGe Family.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Dage Family</h3>
+                            <span class="menu-item-price">$18</span>
+                        </div>
+                        <p>DaGe Family</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="all">
+                    <img src="img/Honey Roasted Pork with Rice and Sunny Side-up Egg.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Honey Roasted Pork with Rice and Sunny Side-up Egg</h3>
+                            <span class="menu-item-price">$24</span>
+                        </div>
+                        <p>Honey roasted pork served with rice and a sunny side-up egg</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="all">
+                    <img src="img/Fresh Organic Chocolate Milk with Tapioca Pearls.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Fresh Organic Chocolate Milk with Tapioca Pearls</h3>
+                            <span class="menu-item-price">$32</span>
+                        </div>
+                        <p>Fresh organic chocolate milk served with chewy tapioca pearls</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="all">
+                    <img src="img/Deep-fried Chicken Leg.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Deep-fried Chicken Leg</h3>
+                            <span class="menu-item-price">$12</span>
+                        </div>
+                        <p>Deep-fried chicken leg served with a side of dipping sauce</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="starters">
+                    <img src="img/Pig Intestines with Pickled Vegetables Rice Noodles.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pig Intestines with Pickled Vegetables</h3>
+                            <span class="menu-item-price">$14</span>
+                        </div>
+                        <p>Pig Intestines with Pickled Vegetables</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="starters">
+                    <img src="img/Pig Intestines with Pickled Vegetables Rice Noodles.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pig Intestines with Pickled Vegetables</h3>
+                            <span class="menu-item-price">$14</span>
+                        </div>
+                        <p>Pig Intestines with Pickled Vegetables</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="starters">
+                    <img src="img/Pig Intestines with Pickled Vegetables Rice Noodles.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pig Intestines with Pickled Vegetables</h3>
+                            <span class="menu-item-price">$14</span>
+                        </div>
+                        <p>Pig Intestines with Pickled Vegetables</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="starters">
+                    <img src="img/Pig Intestines with Pickled Vegetables Rice Noodles.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pig Intestines with Pickled Vegetables</h3>
+                            <span class="menu-item-price">$14</span>
+                        </div>
+                        <p>Pig Intestines with Pickled Vegetables</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="starters">
+                    <img src="img/Pig Intestines with Pickled Vegetables Rice Noodles.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pig Intestines with Pickled Vegetables</h3>
+                            <span class="menu-item-price">$14</span>
+                        </div>
+                        <p>Pig Intestines with Pickled Vegetables</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="starters">
+                    <img src="img/Pig Intestines with Pickled Vegetables Rice Noodles.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pig Intestines with Pickled Vegetables</h3>
+                            <span class="menu-item-price">$14</span>
+                        </div>
+                        <p>Pig Intestines with Pickled Vegetables</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="starters">
+                    <img src="img/Pig Intestines with Pickled Vegetables Rice Noodles.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pig Intestines with Pickled Vegetables</h3>
+                            <span class="menu-item-price">$14</span>
+                        </div>
+                        <p>Pig Intestines with Pickled Vegetables</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="starters">
+                    <img src="img/Pig Intestines with Pickled Vegetables Rice Noodles.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pig Intestines with Pickled Vegetables</h3>
+                            <span class="menu-item-price">$14</span>
+                        </div>
+                        <p>Pig Intestines with Pickled Vegetables</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="starters">
+                    <img src="img/Pig Intestines with Pickled Vegetables Rice Noodles.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pig Intestines with Pickled Vegetables</h3>
+                            <span class="menu-item-price">$14</span>
+                        </div>
+                        <p>Pig Intestines with Pickled Vegetables</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="starters">
+                    <img src="img/Pig Intestines with Pickled Vegetables Rice Noodles.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pig Intestines with Pickled Vegetables</h3>
+                            <span class="menu-item-price">$14</span>
+                        </div>
+                        <p>Pig Intestines with Pickled Vegetables</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="starters">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+                </div>
+                 <div class="menu-item" data-category="starters">
+                    <img src="img/Pig Intestines with Pickled Vegetables Rice Noodles.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pig Intestines with Pickled Vegetables</h3>
+                            <span class="menu-item-price">$14</span>
+                        </div>
+                        <p>Pig Intestines with Pickled Vegetables</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="starters">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+                </div>
+
+                 <div class="menu-item" data-category="starters">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+                </div>
+
+                 <div class="menu-item" data-category="starters">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+                </div>
+
+                 <div class="menu-item" data-category="starters">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>  
+            </div>
+
+             <div class="menu-item" data-category="starters">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+                </div>
+
+                 <div class="menu-item" data-category="starters">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="starters">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+
+        <div class="menu-item" data-category="starters">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="starters">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="starters">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="starters">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="starters">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="starters">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+
+        <div class="menu-item" data-category="starters">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>DaGe's Signature Rice Noodles</h3>
+                            <span class="menu-item-price">$13.80</span>
+                        </div>
+                        <p>DaGe's Signature Rice Noodles</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img/Hainanese Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Hainanese Chicken Rice Noodles</h3>
+                            <span class="menu-item-price">$13.80</span>
+                        </div>
+                        <p>Hainanese chicken served with rice and accompanied by chili sauce</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Mala Hot Soup</h3>
+                            <span class="menu-item-price">$13.80</span>
+                        </div>
+                        <p>Luncheon Meat, Ham, Pig Blood, Fish Balls, Fish Tofu, Tofu Skin, Kelp,Chinese Cabbage</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>DaGe Family</h3>
+                            <span class="menu-item-price">$28.80</span>
+                        </div>
+                        <p>King Prawns, Fish Ball, Fish Fillet, Lobster Ball, Crab Stick, Cuttlefish Ball, Pig Intestines, Pig Blood, Pig Trotters, Braised Pork Belly, Minced Pork Sauce, Braised Beef Brisket, Tendon, Tripe, Beef Ball</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img/Sichuan Dan Dan Noodles.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Sichuan Dan Dan Noodles</h3>
+                            <span class="menu-item-price">$12.80</span>
+                        </div>
+                        <p>White Noodle with Minced Pork Sauce , Salted Beansprout in a mixture of Sichuan Spicy Sauce with Peanuts , Spring Onions , Coriander & Sesame</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img/Sea Emperor Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Sea Emperor Rice Noodles</h3>
+                            <span class="menu-item-price">$16.80</span>
+                        </div>
+                        <p>King Prawns, Wontons, Fish Fillet, Lobster Balls, Cuttlefish Ball, Crab Stick</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img/Bull Demon King.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Bull Demon King</h3>
+                            <span class="menu-item-price">$15.80</span>
+                        </div>
+                        <p>Braised Beef Brisket, Tendon, Shank of Beef, Honeycomb Tripe, Beef Balls</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img/Marshals Tian Peng.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Marshals Tian Peng</h3>
+                            <span class="menu-item-price">$15.80</span>
+                        </div>
+                        <p>Braised Pork Belly, Spicy Pork Belly, Minced Pork Sauce, Pig Trotters, Pig's Intestines</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img/Ultimate Curry.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Ultimate Curry</h3>
+                            <span class="menu-item-price">$16.80</span>
+                        </div>
+                        <p>Pork Skin, Pig Intestines, Pig Blood, Fish Balls, Explosion Beef Balls, Curry Soup</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img/Pork Chop with Pickled Vegetables Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pork Chop with Pickled Vegetables Rice Noodles</h3>
+                            <span class="menu-item-price">$12.80</span>
+                        </div>
+                        <p>Deep-fried Pork Chop, Thai-style Pickled Vegetables</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Chinese Mushroom and Chicken Rice Noodles</h3>
+                            <span class="menu-item-price">$13.80</span>
+                        </div>
+                        <p>Chinese Mushroom, Chicken Slices</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img/Braised Beef Brisket & Tendon Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Braised Beef Brisket & Tendon Rice Noodles</h3>
+                            <span class="menu-item-price">$14.80</span>
+                        </div>
+                        <p>Braised Beef Brisket, Beef Tendon</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img/Beef Rolls with Pickled Vegetables Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Beef Rolls with Pickled Vegetables Rice Noodles</h3>
+                            <span class="menu-item-price">$12.80</span>
+                        </div>
+                        <p>Marbled Beef Rolls, Thai-style Pickled Vegetables</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img/Pig Intestines with Pickled Vegetables Rice Noodles.jpeg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pig Intestines with Pickled Vegetables Rice Noodles</h3>
+                            <span class="menu-item-price">$12.80</span>
+                        </div>
+                        <p>Pig Intestines, Thai-style Pickled Vegetables</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img/Fish Fillet with Pickled Vegetables Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Fish Fillet with Pickled Vegetables Rice Noodles</h3>
+                            <span class="menu-item-price">$12.80</span>
+                        </div>
+                        <p>Fish Fillet, Thai-style Pickled Vegetables</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img/Crispy Duck Leg Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Crispy Duck Leg Rice Noodles</h3>
+                            <span class="menu-item-price">$15.80</span>
+                        </div>
+                        <p>Deep-fried Crispy Duck Leg</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains">
+                    <img src="img/Shredded Duck with Pickled Vegetables Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Shredded Duck with Pickled Vegetables Rice Noodles</h3>
+                            <span class="menu-item-price">$13.80</span>
+                        </div>
+                        <p>Roast Duck Slice, Thai-style Pickled Vegetables</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="mains"> 
+                    <img src="img/Mixed Vegetable Rice Noodles (V).JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Mixed Vegetable Rice Noodles (V)</h3>
+                            <span class="menu-item-price">$11.80</span>
+                        </div>
+                        <p>Pepper, Tofu Puffs, Chives, Black Fungus</p>
+                    </div>
+        </div class=menu-group>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/Honey Roasted Pork with Rice and Sunny Side-up Egg.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Honey Roasted Pork with Rice and Sunny Side-up Egg</h3>
+                            <span class="menu-item-price">$15.80</span>
+                        </div>
+                        <p>Honey roasted pork served with rice and a sunny side-up egg</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/Crispy Pork with Rice.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Crispy Pork with Rice</h3>
+                            <span class="menu-item-price">$13.80</span>
+                        </div>
+                        <p>Crispy Pork with Rice</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/Honey Roasted Pork with Rice.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Honey Roasted Pork with Rice</h3>
+                            <span class="menu-item-price">$13.80</span>
+                        </div>
+                        <p>Honey roasted pork served with rice</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/Roasted Duck with Rice.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Roasted Duck with Rice</h3>
+                            <span class="menu-item-price">$14.80</span>
+                        </div>
+                        <p>Roasted duck served with rice</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/Hainanese Chicken with Boiled Rice2.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Hainanese Chicken with Boiled Rice</h3>
+                            <span class="menu-item-price">$13.80</span>
+                        </div>
+                        <p>Hainanese chicken served with boiled rice</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/Any 2 Kinds of Meat with Rice.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Any 2 Kinds of Meat with Rice</h3>
+                            <span class="menu-item-price">$15.80</span>
+                        </div>
+                        <p>Any 2 Kinds of Meat with Rice</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Any 3 Kinds of Meat with Rice</h3>
+                            <span class="menu-item-price">$16.80</span>
+                        </div>
+                        <p>Any 3 Kinds of Meat with Rice</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/Honey Roasted Pork with Rice.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Honey Roasted Pork with Rice</h3>
+                            <span class="menu-item-price">$16.80</span>
+                        </div>
+                        <p>Honey roasted pork served with rice</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="hkbbq">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="riceBowls">
+                    <img src="img/basket-for-artisan-bakery.jpg" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Artisan Bread Basket</h3>
+                            <span class="menu-item-price">$9</span>
+                        </div>
+                        <p>Selection of homemade breads with infused olive oil and balsamic vinegar</p>
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="Pork Ribs" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pork Ribs (排骨串)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+<div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Chicken Wings (雞翼)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Lamb Skewer (羊肉串)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Chicken Karaage (炸雞塊串)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Cuttlefish Ball (墨魚丸串)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Pork Sausage (香腸串)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Squid Tentacles (魷魚鬚串)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Chicken Gizzard (雞胗串)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Beef (牛肉串)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Chicken (雞肉串)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>FishTofu (魚豆腐串)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Prawn Tempura (蝦天婦羅串)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>LobsterBalls (龍蝦球串)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+    
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>KoreanFish Cake (韓式魚餅串)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>FishTofuwith Cheese (芝士魚豆腐)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Octopus Takoyaki Balls (燒章魚丸串)</h3>
+                            <span class="menu-item-price">$1.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>DoughStick(V) (油條串)</h3>
+                            <span class="menu-item-price">$0.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>TofuPuff(V) (油豆腐串)</h3>
+                            <span class="menu-item-price">$0.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>CorianderBean (香菜腐皮串)</h3>
+                            <span class="menu-item-price">$0.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Broccoli(V) (西蘭花串)</h3>
+                            <span class="menu-item-price">$0.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Aubergine(V) (茄排片串)</h3>
+                            <span class="menu-item-price">$0.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Mushroom(V) (蘑菇串)</h3>
+                            <span class="menu-item-price">$0.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>ChivesBean (韭菜腐皮串)</h3>
+                            <span class="menu-item-price">$0.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+        <div class="menu-item" data-category="skewers">
+                    <img src="img/Chinese Mushroom and Chicken Rice Noodles.JPG" alt="" height="200px" width="100%">
+                    <div class="menu-item-info">
+                        <div class="menu-item-title">
+                            <h3>Courgette(V) (翠肉瓜片串)</h3>
+                            <span class="menu-item-price">$0.99</span>
+                        </div>
+                        <!-- <p>Stir-fried rice noodles with chicken, mushrooms, and vegetables in a savory sauce</p> -->
+                    </div>
+        </div>
+    </div>
+
+            </div>
+            </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <!-- Testimonials Section -->
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <h2 class="section-title">Inside DaGe</h2>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <img src="img/inside03.jpeg" class="testimonial-img" alt="">
+                <div class="testimonial-author">
+                    <div>
+                        <!-- <h4>Sarah Johnson</h4> -->
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="img/inside02.jpeg" class="testimonial-img" alt="">
+                <div class="testimonial-author">
+                    <div>
+                        <!-- <h4>Michael Chen</h4> -->
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="img/inside01.jpeg" class="testimonial-img" alt="">
+                <div class="testimonial-author">
+                    <div>
+                        <!-- <h4>Emily Rodriguez</h4> -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Reservation Section -->
+    <section class="reservation" id="reservation">
+        <div class="container">
+            <h2 class="section-title">Make a Reservation</h2>
+            <div class="reservation-form">
+                <form id="reservationForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="time" id="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <select id="guests" required>
+                            <option value="">Select number of guests</option>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5">5 People</option>
+                            <option value="6">6 People</option>
+                            <option value="7">7+ People</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Book Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>DaGe</h3>
+                    <p>Rice-Noodle-BBQ Meat and Hong Kong style.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li>Monday - Friday: 11am - 21:00pm</li>
+                        <li>Saturday: 11:30am - 21:30pm</li>
+                        <li>Sunday: 11:30am - 21:30pm</li>
+                        <!-- <li>Happy Hour: 4pm - 6pm Daily</li> -->
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"> </i> Unit 4 Brunswick Centre DaGe Claypot Noodle Russell Square London WC1N1AW</li>
+                        <li><i class="fas fa-phone"></i> (+44) 2037592387</li>
+                        <li><i class="fas fa-envelope"></i> dagenoodle@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 DaGe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
