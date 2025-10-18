@@ -172,20 +172,25 @@ window.addEventListener('DOMContentLoaded', () => {
     itemsShownPerCategory.set(category, currentCount + 1);
   };
 
-  // Show first 9 items initially in "all" category
+  // Initialize all items as hidden
+  menuItems.forEach(item => {
+    hideItem(item);
+  });
+
+  // Show first 9 valid items in "all" category initially
+  let allShown = 0;
   menuItems.forEach((item) => {
-    const category = item.getAttribute('data-category');
     const img = item.querySelector('img');
-    
-    if (category === 'all' && canShowMoreItems('all')) {
-      if (img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
-        showItem(item);
-        incrementItemCounter('all');
-      } else {
-        hideItem(item);
+    if (allShown < 9 && img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
+      showItem(item);
+      if (img) {
+        img.style.display = "block";
+        img.style.visibility = "visible";
+        img.style.opacity = "1";
+        img.style.height = "auto";
+        img.style.width = "100%";
       }
-    } else {
-      hideItem(item);
+      allShown++;
     }
   });
 
@@ -199,50 +204,63 @@ window.addEventListener('DOMContentLoaded', () => {
       filterButtons.forEach(btn => btn.classList.remove('active'));
       e.target.classList.add('active');
 
+      // First hide all items
+      menuItems.forEach(item => hideItem(item));
+
+      // Then show up to 9 items for the selected category
+      let shownCount = 0;
       menuItems.forEach(item => {
         const category = item.getAttribute('data-category').trim();
         const img = item.querySelector('img');
         const imgContainer = item.querySelector('.menu-item-img');
 
-        if ((filter === 'all' && category === 'all') || category === filter) {
-          if (canShowMoreItems(filter)) {
+        // For "all" category, only show first 9 valid items
+        if (filter === 'all') {
+          if (shownCount < 9 && img && !img.getAttribute('src').includes('basket-for-artisan-bakery.jpg')) {
             showItem(item);
-            incrementItemCounter(filter);
-
-            if (filter === 'skewers') {
-              // For skewers, always hide images but show text
-              if (img) {
-                img.style.display = "none";
-                img.style.visibility = "hidden";
-                img.style.opacity = "0";
-                img.style.height = "0";
-                img.style.width = "0";
-              }
-              if (imgContainer) {
-                imgContainer.style.display = "none";
-                imgContainer.style.height = "0";
-                imgContainer.style.padding = "0";
-                imgContainer.style.margin = "0";
-              }
-            } else {
-              // For other categories, show images
-              if (img) {
-                img.style.display = "block";
-                img.style.visibility = "visible";
-                img.style.opacity = "1";
-                img.style.height = "auto";
-                img.style.width = "100%";
-              }
-              if (imgContainer) {
-                imgContainer.style.display = "block";
-                imgContainer.style.height = "200px";
-              }
+            if (img) {
+              img.style.display = "block";
+              img.style.visibility = "visible";
+              img.style.opacity = "1";
+              img.style.height = "auto";
+              img.style.width = "100%";
+            }
+            shownCount++;
+          }
+        }
+        // For specific categories, show up to 9 items from that category
+        else if (category === filter && shownCount < 9) {
+          showItem(item);
+          if (filter === 'skewers') {
+            // For skewers, always hide images but show text
+            if (img) {
+              img.style.display = "none";
+              img.style.visibility = "hidden";
+              img.style.opacity = "0";
+              img.style.height = "0";
+              img.style.width = "0";
+            }
+            if (imgContainer) {
+              imgContainer.style.display = "none";
+              imgContainer.style.height = "0";
+              imgContainer.style.padding = "0";
+              imgContainer.style.margin = "0";
             }
           } else {
-            hideItem(item);
+            // For other categories, show images
+            if (img) {
+              img.style.display = "block";
+              img.style.visibility = "visible";
+              img.style.opacity = "1";
+              img.style.height = "auto";
+              img.style.width = "100%";
+            }
+            if (imgContainer) {
+              imgContainer.style.display = "block";
+              imgContainer.style.height = "200px";
+            }
           }
-        } else {
-          hideItem(item);
+          shownCount++;
         }
       });
     });
